@@ -1,0 +1,51 @@
+<footer class="bg-white border-t border-neutral-200">
+  <div class="max-w-[1200px] mx-auto px-4 py-8">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 pb-6">
+      <div>
+        <h3 class="text-lg font-semibold text-neutral-900">Smat Archi</h3>
+        <p class="text-neutral-700 mt-2">Creating innovative architectural solutions that blend functionality and clarity.</p>
+        @if (contactInfo) {
+          <div class="mt-3 space-y-2">
+            <p class="text-neutral-700"><a class="border-b border-transparent hover:border-neutral-900" [href]="'mailto:' + contactInfo.email">{{ contactInfo.email }}</a></p>
+            <p class="text-neutral-700"><a class="border-b border-transparent hover:border-neutral-900" [href]="'tel:' + contactInfo.phone">{{ contactInfo.phone }}</a></p>
+          </div>
+        }
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-wider text-neutral-800">Navigation</h4>
+        <ul class="mt-3 space-y-2">
+          <li><a routerLink="/" class="text-neutral-900 border-b border-transparent hover:border-neutral-900">Home</a></li>
+          <li><a routerLink="/about" class="text-neutral-900 border-b border-transparent hover:border-neutral-900">About</a></li>
+          <li><a routerLink="/projects" class="text-neutral-900 border-b border-transparent hover:border-neutral-900">Projects</a></li>
+          <li><a routerLink="/contact" class="text-neutral-900 border-b border-transparent hover:border-neutral-900">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="uppercase text-xs tracking-wider text-neutral-800">Services</h4>
+        <ul class="mt-3 space-y-2">
+          <li><span class="text-neutral-900">Residential Design</span></li>
+          <li><span class="text-neutral-900">Commercial Projects</span></li>
+          <li><span class="text-neutral-900">Interior Design</span></li>
+          <li><span class="text-neutral-900">Urban Planning</span></li>
+        </ul>
+      </div>
+
+      @if (socialMediaLinks.length > 0) {
+        <div>
+          <h4 class="uppercase text-xs tracking-wider text-neutral-800">Follow</h4>
+          <div class="mt-3 flex gap-2">
+            @for (link of socialMediaLinks; track link.type) {
+              <a [href]="link.url" target="_blank" rel="noopener" class="group w-10 h-10 border border-neutral-200 flex items-center justify-center text-neutral-500 hover:border-neutral-900 hover:text-neutral-900 transition-all duration-200">
+                <span class="material-icons text-sm w-6 ">{{ link.icon }}</span>
+              </a>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="border-t border-neutral-200 pt-4 text-center text-neutral-600 text-sm">© {{ currentYear }} Smat Archi - Soukaina Matfi. All rights reserved.</div>
+  </div>
+</footer>

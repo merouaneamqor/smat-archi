@@ -1,0 +1,13 @@
+.project__header { border-bottom: 1px solid #e5e5e5; padding: 48px 0 24px; }
+.project__title { font-size: 40px; font-weight: 700; letter-spacing: -0.5px; color: #111; margin: 0 0 8px; }
+.project__meta { color: #555; }
+
+.project__media { height: 360px; background: #f7f7f7; border-bottom: 1px solid #e5e5e5; }
+.project__content { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.section__title { margin: 0 0 12px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.08em; color: #222; }
+.section__text { margin: 0; color: #333; }
+.list { margin: 0; padding-left: 18px; color: #333; }
+
+.project__footer { max-width: 1100px; margin: 0 auto; padding: 0 16px 64px; }
+
+.empty { padding: 64px 16px; text-align: center; color: #666; }

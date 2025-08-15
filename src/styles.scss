@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center px-4 py-2 rounded-full border border-neutral-900 text-neutral-900 bg-transparent font-semibold transition-colors; }
+  .btn:hover { @apply bg-neutral-900 text-white; }
+  .btn--primary { @apply bg-neutral-900 text-white; }
+  .btn--primary:hover { @apply bg-black; }
+  
+  /* Navbar active states */
+  .nav-link-active { @apply text-neutral-900 font-medium; }
+  .nav-link-active::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: theme('colors.neutral.900');
+  }
+  
+  .nav-link-mobile-active { @apply text-neutral-900 font-semibold bg-neutral-50; }
+}
+
+/* Base tweaks for black/white theme */
+html, body {
+  @apply h-full bg-white text-neutral-900 antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.main-content { @apply min-h-screen flex flex-col; }
+
+/* Thin scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #fafafa; }
+::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #a3a3a3; }

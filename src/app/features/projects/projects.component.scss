@@ -1,0 +1,20 @@
+.page__header { border-bottom: 1px solid #e5e5e5; padding: 48px 0 24px; }
+.page__title { font-size: 40px; font-weight: 700; letter-spacing: -0.5px; color: #111; margin: 0 0 8px; }
+.page__subtitle { color: #555; margin: 0; }
+
+.grid { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+.card { display: block; border: 1px solid #e5e5e5; background: #fff; text-decoration: none; color: inherit; }
+.card__media { height: 200px; background: #f7f7f7; border-bottom: 1px solid #e5e5e5; }
+.card__body { padding: 16px; }
+.card__row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.card__title { margin: 0; font-size: 18px; font-weight: 600; color: #111; }
+.card__year { color: #666; font-size: 14px; }
+.card__desc { margin: 8px 0 12px; color: #333; }
+.card__meta { color: #666; font-size: 14px; }
+
+.card:hover { background: #fafafa; }
+
+.loading { padding: 48px; text-align: center; }
+.loading__spinner { width: 32px; height: 32px; border: 3px solid #eee; border-top: 3px solid #111; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }

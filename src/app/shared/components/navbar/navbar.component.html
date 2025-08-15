@@ -1,0 +1,45 @@
+<nav class="bg-white border-b border-neutral-200">
+  <div class="max-w-[1200px] mx-auto h-[70px] px-4 flex items-center justify-between">
+    <a routerLink="/" class="flex items-center gap-2">
+      <app-brand-mark></app-brand-mark>
+      <span class="sr-only">Smat Archi</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8">
+      @for (item of navItems; track item.path) {
+        <li>
+          <a 
+            [routerLink]="item.path" 
+            routerLinkActive="nav-link-active" 
+            [routerLinkActiveOptions]="{exact: item.path === '/'}"
+            class="relative text-neutral-900/90 hover:text-neutral-900 transition-colors py-2 tracking-wide nav-link" 
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <button class="md:hidden p-2" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-label="Toggle navigation menu">
+      <span class="block w-[22px] h-px bg-neutral-900 relative">
+        <span class="absolute inset-0 -top-1.5 h-px bg-neutral-900" [class.opacity-0]="isMenuOpen"></span>
+        <span class="absolute inset-0 top-1.5 h-px bg-neutral-900" [class.opacity-0]="isMenuOpen"></span>
+      </span>
+    </button>
+  </div>
+
+  <div class="md:hidden border-t border-neutral-200" [class.hidden]="!isMenuOpen">
+    <ul class="px-4 py-2">
+      @for (item of navItems; track item.path) {
+        <li class="border-t border-neutral-200 first:border-t-0">
+          <a 
+            [routerLink]="item.path" 
+            routerLinkActive="nav-link-mobile-active" 
+            [routerLinkActiveOptions]="{exact: item.path === '/'}"
+            class="block py-3 text-neutral-900 tracking-wide" 
+            (click)="closeMenu()"
+          >{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

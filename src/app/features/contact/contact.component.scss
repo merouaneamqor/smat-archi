@@ -1,0 +1,18 @@
+.page__header { border-bottom: 1px solid #e5e5e5; padding: 48px 0 24px; }
+.page__title { font-size: 40px; font-weight: 700; letter-spacing: -0.5px; color: #111; margin: 0 0 8px; }
+.page__subtitle { color: #555; margin: 0; }
+
+.contact { max-width: 900px; margin: 0 auto; padding: 32px 16px 64px; }
+
+.form { display: grid; gap: 16px; }
+.form__row { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+.form__field { display: grid; gap: 8px; }
+.form__field label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #222; }
+.form__field input, .form__field textarea { padding: 12px 10px; border: 1px solid #e5e5e5; outline: none; background: #fff; color: #111; }
+.form__field input:focus, .form__field textarea:focus { border-color: #111; }
+.form__actions { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.form__sent { color: #333; }
+
+@media (max-width: 768px) {
+  .form__row { grid-template-columns: 1fr; }
+}

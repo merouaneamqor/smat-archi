@@ -1,0 +1,36 @@
+<section class="bg-white">
+  <header class="border-b border-neutral-200 py-12">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h1 class="text-4xl font-bold text-neutral-900">Contact</h1>
+      <p class="text-neutral-600">Let's discuss your project</p>
+    </div>
+  </header>
+
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="grid gap-4" novalidate>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="uppercase text-xs tracking-wider text-neutral-800">Name</label>
+          <input class="mt-1 w-full border border-neutral-200 px-3 py-2 outline-none focus:border-neutral-900" type="text" formControlName="name" />
+        </div>
+        <div>
+          <label class="uppercase text-xs tracking-wider text-neutral-800">Email</label>
+          <input class="mt-1 w-full border border-neutral-200 px-3 py-2 outline-none focus:border-neutral-900" type="email" formControlName="email" />
+        </div>
+      </div>
+      <div>
+        <label class="uppercase text-xs tracking-wider text-neutral-800">Subject</label>
+        <input class="mt-1 w-full border border-neutral-200 px-3 py-2 outline-none focus:border-neutral-900" type="text" formControlName="subject" />
+      </div>
+      <div>
+        <label class="uppercase text-xs tracking-wider text-neutral-800">Message</label>
+        <textarea class="mt-1 w-full border border-neutral-200 px-3 py-2 outline-none focus:border-neutral-900" rows="6" formControlName="message"></textarea>
+      </div>
+
+      <div class="flex items-center gap-3 mt-2">
+        <button class="btn btn--primary" type="submit" [disabled]="sending || form.invalid">{{ sending ? 'Sending…' : 'Send' }}</button>
+        <span class="text-neutral-700" *ngIf="sent">Thanks, I will get back to you soon.</span>
+      </div>
+    </form>
+  </div>
+</section>
