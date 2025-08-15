@@ -1,27 +1,51 @@
 <section class="relative border-b border-neutral-200 min-h-screen flex items-center overflow-hidden">
-  <!-- Architectural grid background -->
-  <div class="pointer-events-none absolute inset-0 opacity-40" style="background-image: linear-gradient(to right, rgba(17,17,17,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(17,17,17,0.06) 1px, transparent 1px); background-size: 64px 64px;"></div>
+  <!-- Architectural grid background - responsive -->
+  <div class="pointer-events-none absolute inset-0 opacity-30 sm:opacity-40" style="background-image: linear-gradient(to right, rgba(17,17,17,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(17,17,17,0.06) 1px, transparent 1px); background-size: 32px 32px;" class="sm:bg-[length:64px_64px]"></div>
 
-  <!-- Large typographic anchors -->
-  <div class="pointer-events-none absolute -left-8 -top-16 text-[24rem] leading-none font-black text-neutral-100 select-none uppercase tracking-tighter">S</div>
-  <div class="pointer-events-none absolute -right-10 -bottom-10 text-[20rem] leading-none font-black text-neutral-100 select-none uppercase tracking-tighter">M</div>
+  <!-- Large typographic anchors - responsive sizing -->
+  <div class="pointer-events-none absolute -left-4 sm:-left-8 -top-8 sm:-top-16 text-[12rem] sm:text-[18rem] lg:text-[24rem] leading-none font-black text-neutral-100 select-none uppercase tracking-tighter">S</div>
+  <div class="pointer-events-none absolute -right-4 sm:-right-10 -bottom-6 sm:-bottom-10 text-[10rem] sm:text-[15rem] lg:text-[20rem] leading-none font-black text-neutral-100 select-none uppercase tracking-tighter">M</div>
 
-  <!-- Geometric outlines -->
-  <div class="pointer-events-none absolute -right-24 top-10 w-[520px] h-[520px] border border-neutral-200 rotate-12"></div>
-  <div class="pointer-events-none absolute -left-28 bottom-[-60px] w-[380px] h-[380px] rounded-full border border-neutral-200"></div>
-  <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-12 w-[720px] h-0.5 bg-neutral-200"></div>
+  <!-- Geometric outlines - responsive and adaptive -->
+  <div class="pointer-events-none absolute -right-12 sm:-right-24 top-5 sm:top-10 w-[300px] sm:w-[400px] lg:w-[520px] h-[300px] sm:h-[400px] lg:h-[520px] border border-neutral-200 rotate-12 opacity-60 sm:opacity-100"></div>
+  <div class="pointer-events-none absolute -left-16 sm:-left-28 bottom-[-30px] sm:bottom-[-60px] w-[200px] sm:w-[300px] lg:w-[380px] h-[200px] sm:h-[300px] lg:h-[380px] rounded-full border border-neutral-200 opacity-60 sm:opacity-100"></div>
+  <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-6 sm:top-12 w-[400px] sm:w-[600px] lg:w-[720px] h-0.5 bg-neutral-200 opacity-60 sm:opacity-100"></div>
 
-  <div class="relative max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-    <div class="space-y-7">
-      <h1 class="heading-serif text-6xl md:text-7xl font-bold text-neutral-900 leading-[0.9] mb-6">Creating Spaces That <span class="relative after:absolute after:left-0 after:-bottom-2 after:h-0.5 after:w-full after:bg-amber-600">Inspire</span></h1>
-      <p class="text-luxury text-lg max-w-prose mb-8">Innovative architectural solutions that balance function, proportion, and light. We craft clear, refined spaces with precision and intent.</p>
-      <div class="flex flex-wrap gap-3">
-        <button class="btn btn--primary" (click)="onScrollToSection('featured-projects')">View Projects</button>
-        <a routerLink="/contact" class="btn">Get in Touch</a>
+  <div class="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-[80vh] sm:min-h-[70vh]">
+      <!-- Content Section -->
+      <div class="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
+        <h1 class="heading-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-[0.9] tracking-tight">
+          Creating Spaces That 
+          <span class="relative inline-block mt-2 sm:mt-0">
+            <span class="relative z-10">Inspire</span>
+            <span class="absolute left-0 -bottom-1 sm:-bottom-2 h-0.5 w-full bg-amber-600 transform origin-left animate-pulse"></span>
+          </span>
+        </h1>
+        <p class="text-luxury text-base sm:text-lg lg:text-xl max-w-prose mx-auto lg:mx-0 leading-relaxed">
+          Innovative architectural solutions that balance function, proportion, and light. We craft clear, refined spaces with precision and intent.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start pt-4">
+          <button class="btn btn--primary text-sm sm:text-base w-full sm:w-auto" (click)="onScrollToSection('featured-projects')">
+            View Projects
+          </button>
+          <a routerLink="/contact" class="btn text-sm sm:text-base w-full sm:w-auto">
+            Get in Touch
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="relative flex justify-center">
-      <img src="/assets/images/square_compass.png" alt="Square and Compass" class="w-80 h-80 object-contain" />
+      
+      <!-- Image Section - Pure Focus -->
+      <div class="relative flex justify-center items-center order-1 lg:order-2 py-8 sm:py-12 lg:py-0">
+        <div class="relative group">
+          <!-- Clean villa image - responsive and prominent -->
+          <img 
+            src="/assets/images/villa.png" 
+            alt="Modern Villa Architecture" 
+            class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[600px] h-auto object-contain transform transition-transform duration-300 hover:scale-105" 
+          />
+        </div>
+      </div>
     </div>
   </div>
 </section>
