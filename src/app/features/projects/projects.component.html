@@ -1,32 +1,40 @@
 <section class="bg-white">
-  <header class="border-b border-neutral-200 py-12">
-    <div class="max-w-[1200px] mx-auto px-4">
-      <h1 class="text-4xl font-bold text-neutral-900">Projects</h1>
-      <p class="text-neutral-600">Selected works</p>
+  <header class="border-b border-neutral-200 py-16">
+    <div class="max-w-[1200px] mx-auto px-4 text-center">
+      <h1 class="heading-serif text-5xl font-semibold text-neutral-900 mb-4 uppercase tracking-wide">Projects</h1>
+      <div class="w-24 h-px bg-amber-600 mx-auto mb-4"></div>
+      <p class="text-luxury text-lg">Selected architectural works</p>
     </div>
   </header>
 
   @if (isLoading) {
-    <div class="py-12 text-center">
+    <div class="py-16 text-center">
       <div class="w-8 h-8 border-2 border-neutral-200 border-t-neutral-900 rounded-full animate-spin mx-auto"></div>
     </div>
   } @else {
-    <div class="max-w-[1200px] mx-auto px-4 py-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      @for (project of projects; track project.id) {
-        <a class="block border border-neutral-200 rounded-md overflow-hidden" [routerLink]="['/projects', project.slug]">
-          <div class="h-48 bg-neutral-50 border-b border-neutral-200 flex items-center justify-center">
-            <span class="material-icons text-5xl text-neutral-300">photo</span>
-          </div>
-          <div class="p-4">
-            <div class="flex items-baseline justify-between gap-4">
-              <h3 class="font-semibold text-neutral-900">{{ project.title }}</h3>
-              <span class="text-sm text-neutral-600">{{ project.year }}</span>
+    <div class="max-w-[1200px] mx-auto px-4 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (project of projects; track project.id) {
+          <a class="group block transition-all duration-500 hover:-translate-y-2" [routerLink]="['/projects', project.slug]">
+            <div class="aspect-[4/3] bg-neutral-50 border border-neutral-200 overflow-hidden mb-6 relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200 flex items-center justify-center">
+                <span class="material-icons text-neutral-400 text-6xl">photo</span>
+              </div>
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <span class="text-white font-medium tracking-wide uppercase">View Details</span>
+              </div>
             </div>
-            <p class="text-neutral-700 mt-1">{{ project.shortDescription }}</p>
-            <div class="text-neutral-600 text-sm mt-2">{{ project.location }} — {{ project.category }}</div>
-          </div>
-        </a>
-      }
+            <div class="px-2">
+              <div class="flex items-baseline justify-between gap-4 mb-2">
+                <h3 class="heading-serif text-xl font-semibold text-neutral-900">{{ project.title }}</h3>
+                <span class="text-xs uppercase tracking-wider text-neutral-500">{{ project.year }}</span>
+              </div>
+              <p class="text-luxury text-sm mb-3">{{ project.shortDescription }}</p>
+              <div class="text-xs uppercase tracking-wider text-neutral-500">{{ project.location }} — {{ project.category }}</div>
+            </div>
+          </a>
+        }
+      </div>
     </div>
   }
 </section>

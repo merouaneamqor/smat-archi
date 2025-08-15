@@ -1,0 +1,20 @@
+<section class="border-t border-neutral-200 py-16">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="heading-serif text-4xl font-semibold text-neutral-900 mb-4 uppercase tracking-wide">Our Services</h2>
+      <div class="w-24 h-px bg-amber-600 mx-auto mb-4"></div>
+      <p class="text-luxury text-lg">Comprehensive solutions for every project type</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      @for (service of services; track service.title) {
+        <div class="text-center border border-neutral-200 rounded-sm p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <div class="w-16 h-16 mx-auto rounded-full border border-neutral-200 flex items-center justify-center mb-6 bg-white">
+            <span class="material-icons text-neutral-500 text-xl">{{ service.icon }}</span>
+          </div>
+          <h3 class="heading-serif text-lg font-semibold text-neutral-900 mb-3">{{ service.title }}</h3>
+          <p class="text-luxury text-sm">{{ service.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

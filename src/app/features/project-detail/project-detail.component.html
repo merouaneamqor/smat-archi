@@ -1,33 +1,86 @@
 @if (project) {
   <article class="bg-white">
-    <header class="border-b border-neutral-200 py-12">
-      <div class="max-w-[1200px] mx-auto px-4">
-        <h1 class="text-4xl font-bold text-neutral-900">{{ project.title }}</h1>
-        <div class="text-neutral-600 mt-1">{{ project.location }} — {{ project.year }} — {{ project.category }}</div>
+    <header class="border-b border-neutral-200 py-16">
+      <div class="max-w-[1200px] mx-auto px-4 text-center">
+        <h1 class="heading-serif text-5xl font-semibold text-neutral-900 mb-4">{{ project.title }}</h1>
+        <div class="w-24 h-px bg-amber-600 mx-auto mb-4"></div>
+        <div class="text-luxury text-lg">{{ project.location }} — {{ project.year }} — {{ project.category }}</div>
       </div>
     </header>
 
-    <section class="h-80 bg-neutral-50 border-b border-neutral-200"></section>
-
-    <section class="max-w-[1200px] mx-auto px-4 py-10 grid md:grid-cols-2 gap-6">
-      <div>
-        <h2 class="uppercase text-xs tracking-wider text-neutral-800">Overview</h2>
-        <p class="text-neutral-800 mt-2">{{ project.description }}</p>
-      </div>
-      <div>
-        <h2 class="uppercase text-xs tracking-wider text-neutral-800">Details</h2>
-        <ul class="mt-2 list-disc pl-5 text-neutral-800">
-          <li>Area: {{ project.area }}</li>
-          <li>Status: {{ project.status }}</li>
-          <li>Client: {{ project.client || '—' }}</li>
-        </ul>
+    <!-- Hero Image Section -->
+    <section class="relative">
+      <div class="h-[70vh] bg-gradient-to-br from-neutral-100 to-neutral-200 border-b border-neutral-200 flex items-center justify-center">
+        <img src="/assets/images/square_compass.png" alt="Square and Compass" class="w-32 h-32 object-contain opacity-20" />
       </div>
     </section>
 
-    <footer class="max-w-[1200px] mx-auto px-4 pb-12">
-      <a routerLink="/projects" class="btn">Back to Projects</a>
+    <!-- Project Details -->
+    <section class="max-w-[1200px] mx-auto px-4 py-16">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Overview -->
+        <div class="lg:col-span-2">
+          <h2 class="heading-serif text-2xl font-semibold text-neutral-900 mb-6">Project Overview</h2>
+          <div class="w-16 h-px bg-amber-600 mb-6"></div>
+          <p class="text-luxury text-lg leading-relaxed">{{ project.description }}</p>
+          
+          @if (project.features.length > 0) {
+            <div class="mt-8">
+              <h3 class="heading-serif text-xl font-semibold text-neutral-900 mb-4">Key Features</h3>
+              <ul class="space-y-2">
+                @for (feature of project.features; track feature) {
+                  <li class="text-luxury flex items-start gap-3">
+                    <span class="w-1 h-1 bg-amber-600 rounded-full mt-3 flex-shrink-0"></span>
+                    {{ feature }}
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+
+        <!-- Project Info Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="border border-neutral-200 p-8">
+            <h2 class="heading-serif text-xl font-semibold text-neutral-900 mb-6">Project Details</h2>
+            <div class="w-12 h-px bg-amber-600 mb-6"></div>
+            
+            <div class="space-y-4">
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-neutral-500 mb-1">Area</dt>
+                <dd class="text-luxury">{{ project.area }}</dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-neutral-500 mb-1">Status</dt>
+                <dd class="text-luxury capitalize">{{ project.status }}</dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-neutral-500 mb-1">Client</dt>
+                <dd class="text-luxury">{{ project.client || 'Confidential' }}</dd>
+              </div>
+              @if (project.technologies.length > 0) {
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-neutral-500 mb-1">Technologies</dt>
+                  <dd class="text-luxury">{{ project.technologies.join(', ') }}</dd>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <footer class="border-t border-neutral-200 py-8">
+      <div class="max-w-[1200px] mx-auto px-4 text-center">
+        <a routerLink="/projects" class="btn">← Back to Projects</a>
+      </div>
     </footer>
   </article>
 } @else {
-  <div class="py-16 text-center text-neutral-600">Project not found.</div>
+  <div class="py-24 text-center">
+    <h1 class="heading-serif text-3xl font-semibold text-neutral-900 mb-4">Project Not Found</h1>
+    <p class="text-luxury mb-8">The requested project could not be found.</p>
+    <a routerLink="/projects" class="btn">← Back to Projects</a>
+  </div>
 }
